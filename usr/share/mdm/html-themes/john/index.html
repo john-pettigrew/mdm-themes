@@ -36,7 +36,7 @@
 		// Called by MDM to allow the user to input a username		
 		function mdm_prompt(message) {	
 			mdm_enable();		
-			document.getElementById("label").innerHTML = message;
+			document.getElementById("label").innerHTML = 'username';
 			document.getElementById("entry").value = "";
 			document.getElementById("entry").type = "text";
 			document.getElementById("entry").focus();
@@ -45,7 +45,7 @@
 		// Called by MDM to allow the user to input a password
 		function mdm_noecho(message) {	
 			mdm_enable();		
-			document.getElementById("label").innerHTML = message;
+			document.getElementById("label").innerHTML = 'password';
 			document.getElementById("entry").value = "";
 			document.getElementById("entry").type = "password";
 			document.getElementById("entry").focus();
@@ -236,21 +236,24 @@
 <body>		
     
 	<div class="box">
-		<div id="welcome_message"></div> <div id="clock"></div>
+		<div class="center-block">
+			<div id="clock"></div>
+		</div>
 									
-		<div id="error" class="alert alert-error"></div>
-		
-		<form class="form-inline" onSubmit="return send_login();">
-			<fieldset>			
-				<label id="label"></label>
-				<input type="text" class="input-medium" id="entry">
-				<button type="submit" class="btn btn-inverse" id="ok_button">$ok_label</button>
-			</fieldset>
-		</form>
-
-		<div id="message"></div>		
-		
+		<div class="login-input">
+			<div class="form-group center-block">
+				<form class="form" onSubmit="return send_login();">
+					<fieldset class="center-block">			
+						<h3 id="label"></h3>
+						<input type="text" class="form-control" id="entry">
+						<button type="submit" class="btn btn-primary pull-right" id="ok_button"><span class="glyphicon glyphicon-ok"></span></button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
 		<div id="timed"></div>
+				<div id="error" class="alert alert-error"></div>
+
 	</div>	
 	
 	<div class="buttons">
@@ -259,22 +262,13 @@
                 <button class="btn btn-small dropdown-toggle" data-toggle="dropdown" title="$selectsession"> <img src="img/sessions/default.svg" title="$defaultsession" width=16 height=16 id="current_session_picture"/> <span class="caret"></span></button>
                 <ul class="dropdown-menu" id="sessions">                                                       
                 </ul>
-            </div>
-            <div  align="left" class="btn-group">
-                <button class="btn btn-small dropdown-toggle" data-toggle="dropdown" title="$selectlanguage"> <img src="img/languages/generic.png" id="current_language_flag"/> <span class="caret"></span></button>
-                <ul class="dropdown-menu" id="languages">                                                       
-                </ul>
-            </div>			
-			<div class="btn-group">
-				<a class="btn btn-small" href="#" onClick="alert('SHUTDOWN###');" title="$shutdown" id="shutdown"><i class="icon-off"></i></a>
-				<a class="btn btn-small" href="#" onClick="alert('SUSPEND###');" title="$suspend" id="suspend"><i class="icon-download-alt"></i></a>
-				<a class="btn btn-small" href="#" onClick="alert('RESTART###');" title="$restart" id="restart"><i class="icon-refresh"></i></a>
-			</div>
-			<div class="btn-group">
-				<a class="btn btn-small" href="#" onClick="alert('QUIT###');" title="$quit" id="quit"><i class="icon-ban-circle"></i></a>
-			</div>
-			<div class="btn-group">
-				<a class="btn btn-small" href="#" onClick="alert('XDMCP###');" title="$remoteloginviaxdmcp" id="xdmcp"><i class=" icon-share-alt"></i></a>
+            </div>		
+			<div class="btn-group pull-right">
+				<a class="btn btn-small" href="#" onClick="alert('RESTART###');" title="$restart" id="restart"><i class="glyphicon glyphicon-refresh"></i></a>
+				<a class="btn btn-small" href="#" onClick="alert('SUSPEND###');" title="$suspend" id="suspend"><i class="glyphicon glyphicon-chevron-down"></i></a>
+				<a class="btn btn-small" href="#" onClick="alert('SHUTDOWN###');" title="$shutdown" id="shutdown"><i class="glyphicon glyphicon-off"></i></a>
+				
+				
 			</div>
 		</div>
 	</div>	
