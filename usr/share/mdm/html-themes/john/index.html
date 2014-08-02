@@ -243,16 +243,20 @@
 		<div class="login-input">
 			<div class="form-group center-block">
 				<form class="form" onSubmit="return send_login();">
-					<fieldset class="center-block">			
+					<div class="center-block">			
 						<h3 id="label"></h3>
-						<input type="text" class="form-control" id="entry">
-						<button type="submit" class="btn btn-primary pull-right" id="ok_button"><span class="glyphicon glyphicon-ok"></span></button>
-					</fieldset>
+						<div class="form-group">
+							<div class="input-group">
+								<input type="text" class="form-control" id="entry" style="display:inline;">
+								<div type="submit" class="btn btn-default input-group-addon" id="ok_button"><span class="glyphicon glyphicon-ok"></span></div>
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
 		<div id="timed"></div>
-				<div id="error" class="alert alert-error"></div>
+		<div id="error" class="alert alert-error"></div>
 
 	</div>	
 	
@@ -260,8 +264,7 @@
 		<div class="btn-toolbar">
 			<div  align="left" class="btn-group">
                 <button class="btn btn-small dropdown-toggle" data-toggle="dropdown" title="$selectsession"> <img src="img/sessions/default.svg" title="$defaultsession" width=16 height=16 id="current_session_picture"/> <span class="caret"></span></button>
-                <ul class="dropdown-menu" id="sessions">                                                       
-                </ul>
+                <ul class="dropdown-menu btn btn-default" id="sessions"></ul>
             </div>		
 			<div class="btn-group pull-right">
 				<a class="btn btn-small" href="#" onClick="alert('RESTART###');" title="$restart" id="restart"><i class="glyphicon glyphicon-refresh"></i></a>

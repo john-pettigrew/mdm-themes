@@ -1,5 +1,5 @@
 body { 
-	background: url(bg.jpg) no-repeat center center fixed; 
+	background: linear-gradient(#008F00, black) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -8,6 +8,9 @@ body {
 
 h3, #clock, #error{
 	text-align: center;
+}
+.form-control:focus{
+	border-color: #00FF00
 }
 
 .box {	
