@@ -2,9 +2,13 @@
 <html>
 <head>	
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">	
-	<link href="theme.css" rel="stylesheet" media="screen">			
+	<link href="js/humane-js/themes/jackedup.css" rel="stylesheet" media="screen">	
+	<link href="theme.css" rel="stylesheet" media="screen">	
+	<script src="js/jquery-1.9.1.min.js"></script>		
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-1.9.1.min.js"></script>	
+	<script src="js/d3/d3.min.js"></script>
+	<script src="js/trianglify/trianglify.min.js"></script>	
+	<script src="js/humane-js/humane.min.js"></script>	
 	<script>	
 	
 		var users = Array();
@@ -21,11 +25,6 @@
 			document.getElementById("entry").value = "";
 			document.getElementById("entry").disabled = false;
 			document.getElementById("ok_button").disabled = false;
-		}
-		
-		// Called by MDM to set the welcome message
-		function set_welcome_message(message) {			
-			document.getElementById("welcome_message").innerHTML = message;
 		}
 		
 		// Called by MDM to update the clock
@@ -62,14 +61,17 @@
 		}
 		
 		// Called by MDM to show an error		
-		function mdm_error(message) {						
+		function mdm_error(message) {	
 			if (message != "") {
 				document.getElementById("error").style.display = 'block';
 			}
 			else {
 				document.getElementById("error").style.display = 'none';
 			}
-			document.getElementById("error").innerHTML = message;
+					humane.log(message);					
+
+			//document.getElementById("error").innerHTML = message;
+
 		}	
 						
 		// Send user input to MDM
@@ -83,6 +85,11 @@
 		
 		function init() {
 			document.getElementById("error").style.display = 'none';
+			//Background
+			var t = new Trianglify({x_gradient: Trianglify.colorbrewer.Greens[7],
+				y_gradient: Trianglify.colorbrewer.BuGn[3]});
+			var pattern = t.generate(screen.width, screen.height);
+			$("body").css("background", pattern.dataUrl);
 		}
 		
 		// Called by MDM to add a user to the list of users
@@ -229,6 +236,8 @@
 		function mdm_hide_xdmcp() {
 			document.getElementById("xdmcp").style.display = 'none';
 		}
+
+
 	
 	</script>
 	
@@ -239,7 +248,6 @@
 		<div class="center-block">
 			<div id="clock"></div>
 		</div>
-									
 		<div class="login-input">
 			<div class="form-group center-block">
 				<form class="form" onSubmit="return send_login();">
@@ -288,8 +296,6 @@
 	
 </body>
 </html>
-
-<script src="js/bootstrap.min.js"></script>
 
 <script>
 	init();
