@@ -105,19 +105,23 @@
 				picture.setAttribute('class', "user-picture");
 				picture.setAttribute('src', "file:///home/"+username+"/.face");
 				picture.setAttribute('onerror', "this.src='file:///usr/share/pixmaps/nobody.png';");
-				
+				picture.setAttribute('style', 'border-radius: 100%;');
+
 			var realname_div = document.createElement('div');
 				realname_div.setAttribute('class', "usergecos");
 				realname_div.innerHTML = gecos;
+				realname_div.setAttribute('style', 'text-align:center;');
 				
 			var username_div = document.createElement('div');
 				username_div.setAttribute('class', "username");
 				username_div.innerHTML = username;
+				username_div.setAttribute('style', 'text-align:center;');
 
 			if (status != "") {
 				var userstatus_div = document.createElement('div');
 				userstatus_div.setAttribute('class', "userstatus");
 				userstatus_div.innerHTML = status;
+				userstatus_div.setAttribute('style', 'text-align:center;');
 			}
 																																
 			box.appendChild(link);
@@ -289,7 +293,7 @@
 	
 	
 	
-	<div id="users"></div>
+	<div id="users" class="pull-left"></div>
 		
 		
 	

@@ -36,7 +36,7 @@ h3, #clock, #error{
 }
 
 .user-picture {
-	border-radius: 5px;
+	border-radius: 100%;
 	border:2px rgba(80,80,80,0.5) solid;
 	width: 64px;
 	height: 64px;	
