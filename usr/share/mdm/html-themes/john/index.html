@@ -87,7 +87,7 @@
 			document.getElementById("error").style.display = 'none';
 			//Background
 			var t = new Trianglify({x_gradient: Trianglify.colorbrewer.Greens[7],
-				y_gradient: Trianglify.colorbrewer.BuGn[3]});
+				y_gradient: Trianglify.colorbrewer.BuGn[3], noiseIntensity: 0});
 			var pattern = t.generate(screen.width, screen.height);
 			$("body").css("background", pattern.dataUrl);
 		}
