@@ -5,7 +5,7 @@ body {
 	background-size: cover;
 }
 
-h3, #clock, #error{
+h3, p, body, .username, #clock, #error{
 	text-align: center;
 }
 .form-control:focus{
@@ -62,10 +62,6 @@ h3, #clock, #error{
 	margin-top: 10px;
 	text-shadow: 1px 1px 1px #000;	
 	
-}
-
-.user-info:hover img{
-				
 }
 
 .username {
